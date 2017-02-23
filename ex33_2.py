@@ -1,43 +1,29 @@
 
 from sys import argv
 
-script,var1 = argv
-var2 = 10
-var1 = int(var1)
-print var1 + var1
-print var2 + var2
+script,var1,var4 = argv
+#var1 = int(var1)
 
-#
-# i = 0
-# numbers = []
-#
-# #print var1
-#
-# def monkey(value):
-#     print 'Your value is', value
-#
-# # monkey(var1)
-#
-# while i < var1:
-#     print var1
-#
-#     i = i + 1
-#     print i
-#     if i == 10:
-#         break
 
-#
-# while i < var1:
-#     print "At the top i is %d" % i
-#     numbers.append(i)
-#
-#     i = i + 1
-#     print "Numbers now: " , numbers
-#     print "At the bottom i is %d" % i
-#
-#
-#
-# print "The numbers: "
-#
-# for num in numbers:
-#     print num
+def list(var2,var3):
+
+    i = 0
+    numbers = []
+
+
+    while i < int(var2):
+        print "At the top i is %d" % i
+        numbers.append(i)
+
+        i = i + int(var3)
+        print "Numbers now: " , numbers
+        print "At the bottom i is %d" % i
+
+
+
+    print "The numbers: "
+
+    for num in numbers:
+        print num
+
+list(var1,var4)
