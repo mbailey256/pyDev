@@ -1,0 +1,48 @@
+
+
+outline for new program
+
+
+raiders of the ark
+
+
+functions
+  fight_with()
+    whip
+    gun
+    duck
+    punch
+ark()
+  current location
+scenes
+  cave
+    pit
+    wall spikes
+    darts
+      walk and triptrap=false
+      run > darts and triptrap=true
+    idol
+      replace with sand
+        sand > idol
+          bolder
+
+  kidnapping
+  steal ark
+    airplane
+      fight(mechanic, fists)
+        mechanic > indy
+      fight(mechanic, indy, airplane)
+        airplane > mechanic
+    truck
+      fight(trooper, fist)
+      fight(trooper, tree)
+      fight(trooper, truck)
+    ship
+      fight(submarine, )
+        submarine > ship
+  Open ark
+    eyes(choice)
+      open
+        dead(face melts off)
+      closed
+        good job take the ark to warehouse
