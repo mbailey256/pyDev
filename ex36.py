@@ -10,8 +10,6 @@ next_trap = 1
 
 whip = 'Yes'
 
-
-
 def enter_cave(traps,trap,next_trap):
 
     while trap >= 0 :
@@ -19,29 +17,31 @@ def enter_cave(traps,trap,next_trap):
             wall_spikes()
             print trap,next_trap
             trap = trap + next_trap
+            #dead("Ouch! Wall spikes!")
         elif traps[trap] == 'pit':
             pit()
             print trap,next_trap
             trap = trap + next_trap
+            dead("You fell to your death.")
         elif traps[trap] == 'idol room':
             idol_room()
             print trap,next_trap
             trap = trap + next_trap
+            dead("You stepped on the wrong stone.")
         else:
             idol()
             next_trap = -1
             trap = trap + next_trap
             print trap,next_trap
-
+            dead("You should have ran.")
     boulder()
-
-
 
 def plane():
     print 'cue music'
 
 def boulder():
     print "boulder"
+    dead("Tripped, you died.")
     plane()
 
 def idol():
