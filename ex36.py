@@ -58,6 +58,9 @@ def pit():
 
 def wall_spikes():
     print "Wall Spikes"
+    print """You enter a dark narrow passage
+          /n with a beam """
+
     #sunlight
     #shadow
 
