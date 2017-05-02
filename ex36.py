@@ -8,33 +8,49 @@ traps= ['wall spikes','pit','idol room','idol']
 trap = 0
 next_trap = 1
 
-whip = 'Yes'
+
 
 def enter_cave(traps,trap,next_trap):
 
     while trap >= 0 :
         if traps[trap] == 'wall spikes':
             wall_spikes()
-            print trap,next_trap
+            #print trap,next_trap
             trap = trap + next_trap
             #dead("Ouch! Wall spikes!")
+
         elif traps[trap] == 'pit':
-            pit()
             print trap,next_trap
+            if next_trap > 0:
+                whip = 'Yes'
+            else:
+                whip = 'No'
+            pit(whip)
+
+            #whip = 'No'
             trap = trap + next_trap
-            dead("You fell to your death.")
+            #dead("You fell to your death.")
         elif traps[trap] == 'idol room':
             idol_room()
             print trap,next_trap
             trap = trap + next_trap
-            dead("You stepped on the wrong stone.")
+            #dead("You stepped on the wrong stone.")
         else:
             idol()
             next_trap = -1
             trap = trap + next_trap
             print trap,next_trap
-            dead("You should have ran.")
+            #dead("You should have ran.")
     boulder()
+
+def action(action_msg,hint,fail):
+    print action_msg
+    choice = raw_input("> ")
+    if choice == hint:
+        print "Good job"
+    else:
+        msg = '\n %s  Why didn\'t you %s' % (fail,hint)
+        dead(msg)
 
 def plane():
     print 'cue music'
@@ -48,8 +64,16 @@ def idol():
     print "Idol"
 def idol_room():
     print "Idol Room"
-def pit():
-    print "Pit"
+def pit(whip):
+    msg = """You come to a bottomless pit"""
+
+    if whip == 'Yes':
+        hint = 'use the whip to swing over'
+        fail = 'You fell to your death! '
+    else:
+        hint = 'jump across!'
+        fail = 'You fell to your death! '
+    action(msg,hint,fail)
 
     #jump
     #if whip = 'Yes'
@@ -57,12 +81,11 @@ def pit():
     #whip = 'No'
 
 def wall_spikes():
-    print "Wall Spikes"
-    print """You enter a dark narrow passage
-          /n with a beam """
-
-    #sunlight
-    #shadow
+    msg = """You enter a dark narrow passage
+with a beam of light. What should you do? """
+    hint = 'stay in the shadows!'
+    fail = 'Ouch! Wall spikes!'
+    action(msg,hint,fail)
 
 def dead(why):
     print why
