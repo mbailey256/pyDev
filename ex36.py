@@ -8,8 +8,6 @@ traps= ['wall spikes','pit','idol room','idol']
 trap = 0
 next_trap = 1
 
-
-
 def enter_cave(traps,trap,next_trap):
 
     while trap >= 0 :
@@ -20,21 +18,22 @@ def enter_cave(traps,trap,next_trap):
             #dead("Ouch! Wall spikes!")
 
         elif traps[trap] == 'pit':
-            print trap,next_trap
+            #print trap,next_trap
             if next_trap > 0:
                 whip = 'Yes'
             else:
                 whip = 'No'
+
             pit(whip)
 
-            #whip = 'No'
             trap = trap + next_trap
-            #dead("You fell to your death.")
+
         elif traps[trap] == 'idol room':
+
             idol_room()
-            print trap,next_trap
+
             trap = trap + next_trap
-            #dead("You stepped on the wrong stone.")
+
         else:
             idol()
             next_trap = -1
@@ -62,23 +61,38 @@ def boulder():
 
 def idol():
     print "Idol"
+
 def idol_room():
-    print "Idol Room"
+
+    if next_trap > 0:
+        msg = """You enter the idol room! \n
+Beware of the darts in the walls!"""
+    else:
+        msg = """Beware of the darts in the walls!"""
+
+    if next_trap > 0:
+        hint = "walk on the smooth stones!"
+        fail = 'You\'ve been shot by a poison dart!'
+    elif next_trap < 0:
+        hint = "Run!"
+        fail = 'You\'ve been shot by a poison dart!'
+
+    action(msg,hint,fail)
+
+
 def pit(whip):
     msg = """You come to a bottomless pit"""
 
     if whip == 'Yes':
-        hint = 'use the whip to swing over'
+        hint = 'use the whip to swing over!'
         fail = 'You fell to your death! '
     else:
         hint = 'jump across!'
         fail = 'You fell to your death! '
+
     action(msg,hint,fail)
-
-    #jump
-    #if whip = 'Yes'
-
-    #whip = 'No'
+    if whip == 'Yes':
+        print "Btw leave the whip."
 
 def wall_spikes():
     msg = """You enter a dark narrow passage
